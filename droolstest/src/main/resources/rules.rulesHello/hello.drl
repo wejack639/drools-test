@@ -18,6 +18,7 @@ import cn.shutdown.pojo.Person
             $p:Person(name=="小明",age==18);
         then
             $p.setAge("19");
+            // setAge操作的是引用，使用update以后，才能将变更投入到实际的对象中
             update($p);
             System.out.println("符合规则 小明 18岁,长了一岁到19岁了");
     end

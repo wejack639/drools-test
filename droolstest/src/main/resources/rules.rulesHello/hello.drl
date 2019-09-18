@@ -1,7 +1,23 @@
 package rules.rulesHello
+import cn.shutdown.pojo.Person
     rule "test001"
         when
             eval(true);
         then
             System.out.println("hello world");
+    end
+    rule "test002"
+        when
+            $p:Person();
+        then
+            System.out.println("输出引用对象"+$p);
+    end
+
+    rule "test003"
+        when
+            $p:Person(name=="小明",age==18);
+        then
+            $p.setAge("19");
+            update($p);
+            System.out.println("符合规则 小明 18岁,长了一岁到19岁了");
     end
